@@ -3,6 +3,6 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "33-vge",
-  "https": false
+  "urlRandomness": "ti-t65",
+  "https": true
 }

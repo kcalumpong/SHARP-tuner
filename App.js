@@ -1,19 +1,17 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import HomeScreen from './src/screens/HomeScreen';
-import ComponentsScreen from './src/screens/ComponentsScreen';
-import ListScreen from './src/screens/ListScreen';
-import ImageScreen from './src/screens/ImageScreen';
-import CounterScreen from './src/screens/CounterScreen';
-import ColorScreen from './src/screens/ColorScreen';
+import ViolinScreen from './src/screens/ViolinScreen';
+import ViolaScreen from './src/screens/ViolaScreen';
+import CelloScreen from './src/screens/CelloScreen';
+import BassScreen from './src/screens/BassScreen';
 
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Components: ComponentsScreen,
-    List: ListScreen,
-    Image: ImageScreen,
-    Counter: CounterScreen,
-    Color: ColorScreen
+    Violin: ViolinScreen,
+    Viola: ViolaScreen,
+    Cello: CelloScreen,
+    Bass: BassScreen
   },
   {
     initialRouteName: 'Home',
