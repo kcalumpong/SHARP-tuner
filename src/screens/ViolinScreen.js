@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Image, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, Switch, View, TouchableOpacity } from 'react-native';
 import Logo from '../components/Logo';
 import ViolinG from '../../assets/violinG.png';
 import ViolinD from '../../assets/violinD.png';
@@ -9,17 +9,27 @@ import Violin from '../../assets/violin-logo.png';
 import Back from '../../assets/backButton.png';
 import { Audio } from 'expo-av';
 
-const ViolinScreen = ({ navigation }) => {
-const [EString, setEString] = useState(false);
-console.log(EString)
-toggleSwitch = () => setEString(previousState => !previousState);
+
+
+const ViolinScreen = ({ navigation }) => { 
+  
+  
+  const [EString, setEString] = useState(false);
+  console.log(EString)
+
+  toggleSwitch = () => setEString(previousState => !previousState); {
+   if (EString) {
+     playMusic()
+   }if (!EString) {
+     stopMusic()
+   }
+ }
 
 
 async function playMusic() {
   const soundObject = new Audio.Sound();
-  // setEString(true)
-  // console.log(EString)
-  
+  console.log("Being hit")
+
   try {
     await soundObject.loadAsync(require('../../assets/violin/E-0.mp3'));
     await soundObject.playAsync();
@@ -29,11 +39,9 @@ async function playMusic() {
 }
 
 async function stopMusic() {
+   console.log("Not Being hit")
   const soundObject = new Audio.Sound();
-  // setEString(false)
-  
-  // console.log(EString)
-  
+
   try {
     await soundObject.loadAsync(require('../../assets/violin/E-0.mp3'));
     await soundObject.stopAsync();
@@ -42,26 +50,24 @@ async function stopMusic() {
   }
 }
 
-
   return <View style={styles.container}>
 
     <Logo />
 
     <View style={styles.back}>
       <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+
         <Image style={styles.backIcon} source={Back} />
       </TouchableOpacity>
     </View>
 
     <View style={styles.containerTwo}>
       <View style={styles.rowOne}>
-        <TouchableOpacity
-          onPress={ toggleSwitch }
-          onValueChange={ playMusic }
-          >
-      
 
-          <Image style={styles.stringButtons} source={ViolinG} />
+        <TouchableOpacity
+          onPress={ toggleSwitch } 
+        >
+        <Image style={styles.stringButtons} source={ViolinG} />  
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => alert("Hey")}>

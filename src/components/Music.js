@@ -11,14 +11,14 @@ class Music extends Component {
         // this.handlePress = this.handlePress.bind(this);
       }
 
-
       
+      handlePress() {
+          const [isHungry, setIsHungry] = useState(true);
+          alert("Hey")
+        // this.setState({ifPressed: true});
+      }
       
       render() {
-          const handlePress = () => {
-            alert("Hey")
-            this.setState({ifPressed: true});
-          }
       return (
         <ViolinScreen 
         state={state.ifPressed}
